@@ -1,8 +1,8 @@
 const taskKey = '@tasks';
 
-// Função para adicionar tarefa
+
 function addTask(event) {
-  event.preventDefault(); // Evita o recarregamento da página
+  event.preventDefault();
   const taskId = new Date().getTime();
   const taskList = document.querySelector('#taskList');
 
@@ -22,7 +22,7 @@ function addTask(event) {
 
   taskList.appendChild(li);
 
-  // Salvar tarefas no localStorage
+  
   const tasks = JSON.parse(localStorage.getItem(taskKey)) || [];
   tasks.push({ id: taskId, title: taskTitle, description: taskDescription });
   localStorage.setItem(taskKey, JSON.stringify(tasks));
@@ -30,7 +30,7 @@ function addTask(event) {
   form.reset();
 }
 
-// Função para carregar tarefas do localStorage ao recarregar a página
+
 window.addEventListener('DOMContentLoaded', () => {
   const tasks = JSON.parse(localStorage.getItem(taskKey)) || [];
   const taskList = document.querySelector('#taskList');
